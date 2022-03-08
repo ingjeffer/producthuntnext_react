@@ -1,9 +1,5 @@
-// import app from 'firebase/app';
-// import { initializeApp, auth } from "firebase/app";
-// import 'firebase/auth';
-// import firebase from 'firebase/compat/app';
 import {initializeApp} from "firebase/app";
-import { createUserWithEmailAndPassword, getAuth, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, updateProfile, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import firebaseConfig from "./config";
 
 class Firebase {
@@ -22,8 +18,19 @@ class Firebase {
       displayName: nombre,
     });
   }
+
+    // Inicia sesión del usuario
+  async login(email, password) {
+    return signInWithEmailAndPassword(this.auth, email, password);
+  }
+
+  // Cierra la sesión del usuario
+  async cerrarSesion() {
+    await signOut(this.auth);
+  }
 }
 
 const firebase = new Firebase();
+console.log(firebase);
 
 export default firebase;
