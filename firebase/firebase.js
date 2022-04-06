@@ -1,11 +1,18 @@
 import {initializeApp} from "firebase/app";
 import { createUserWithEmailAndPassword, getAuth, updateProfile, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { getFirestore } from 'firebase/firestore';
 import firebaseConfig from "./config";
+// import "firebase/compat/storage";
+import { getStorage } from "firebase/storage";
+
+
 
 class Firebase {
   constructor() {
-    initializeApp(firebaseConfig);
+    const app = initializeApp(firebaseConfig);
     this.auth = getAuth();
+    this.db = getFirestore();
+    this.storage = getStorage();
   }
 
   async registrar(nombre, email, password) {

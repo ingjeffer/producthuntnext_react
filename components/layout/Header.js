@@ -28,8 +28,6 @@ const Logo = styled.p`
 
 const Header = () => {
   const { firebase, usuario } = useContext(FirebaseContext);
-  console.log(usuario);
-  console.log(firebase);
 
   return(
     <header css={

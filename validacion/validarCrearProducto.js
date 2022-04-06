@@ -24,6 +24,5 @@ export default function validarCrearCuenta(valores) {
         errores.descripcion = "Agrega una descripción de tu producto"
     }
 
-
     return errores;
 }
